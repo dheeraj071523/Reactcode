@@ -5,6 +5,13 @@ function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const { setUser } = useContext(UserContext);
+
+  const handleSumbit = (e) => {
+    e.preventDefault();
+    setUser({ username, password });
+  };
+
   return (
     <>
       <div>
@@ -15,6 +22,7 @@ function Login() {
           onChange={(e) => setUsername(e.target.value)}
           placeholder="username"
         />
+        {"   "}
         <input
           type="password"
           value={password}
