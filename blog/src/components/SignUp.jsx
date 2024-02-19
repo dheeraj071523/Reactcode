@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import authServices from "../appwrite/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { login } from "../store/authSlice";
-import { Button, Input, Logo } from "./index";
+import { Button, Input, Logo } from "./index.js";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 
@@ -18,7 +18,7 @@ function SignUp() {
       const userData = await authServices.createAccount(data);
       if (userData) {
         const userData = await authServices.getCurrentUser();
-        if (userData) dispatch(login(data));
+        if (userData) dispatch(login(userData));
         navigate("/");
       }
     } catch (error) {
@@ -63,12 +63,12 @@ function SignUp() {
                 type="email"
                 {...register("email", {
                   required: true,
-                  // validate: {
-                  //   matchPatern: (value) =>
-                  //     /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(
-                  //       value
-                  //     ) || "Email address must be a valid address",
-                  // },
+                  validate: {
+                    matchPatern: (value) =>
+                      /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(
+                        value
+                      ) || "Email address must be a valid address",
+                  },
                 })}
               />
               <Input
