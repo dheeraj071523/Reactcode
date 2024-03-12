@@ -15,10 +15,14 @@ function App() {
     setThemeMode("dark");
   };
 
+  // iska context se koi vasta nahi hai
   useEffect(() => {
+    // jese hi run hota hai value de deta hai
     document.querySelector("html").classList.remove("light", "dark");
+    // pahale se pata nahi konsi value hai isliya remove kar diya add karne ke liye
+    // client side par code runho raha hai to iska use kar rahe hai
     document.querySelector("html").classList.add(themeMode);
-  }, [themeMode]);
+  }, [themeMode]); // thememode dependices hai isme kuch bhi change aaya code vapas rub hoga
 
   return (
     <>
