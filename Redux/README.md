@@ -19,3 +19,15 @@ create slice taking three value - name, initialstate, reducers
 
 reducers ke ander do cheezo ka acces milta hai state or action
 state me updated value in store or action action payload
+
+redux mai 4 factor hote hai
+
+reducer context api ki tarah hai bus large scale par yeh use hota hai
+
+store = store karne ke kaam aata hai store ke mini store ho sakte hai
+
+reducer = ye elk tarah se object hai reducer funcalties ko define karte hai
+
+useSelector =
+
+useDispatch =

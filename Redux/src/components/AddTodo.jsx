@@ -4,8 +4,8 @@ import { addTodo } from "../Feature/todo/todoSlice";
 
 function AddTodo() {
   const [input, setInput] = useState("");
-  const dispatch = useDispatch();
-
+  const dispatch = useDispatch(); // dispatch ek reducer ka use karte hue store ke ander change karta hai
+  // dispatch value ko bhejta hai
   const addTodoHandler = (e) => {
     e.preventDefault();
     dispatch(addTodo(input));
