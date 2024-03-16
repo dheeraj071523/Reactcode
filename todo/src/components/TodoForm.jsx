@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import { useTodo } from "../context";
 
 function TodoForm() {
-  const [todo, setTodo] = useState("");
-  const { addTodo } = useTodo();
-
+  const [todo, setTodo] = useState(""); // individal todo ke liye
+  const { addTodo } = useTodo(); //  context file mai usecontext ne usetodo ko sara context de diya tha ab use context ke pass sara context store hai
+  // context se haam addTodo function manga rahe hai
   const add = (e) => {
     e.preventDefault();
 
     if (!todo) return;
-    addTodo({ todo, completed: false });
-    setTodo("");
+    addTodo({ todo, completed: false }); // addtodo mai haam object pass akr rahe the isliye yaha bhi object ki form mai dena paadega na ki string ki
+    setTodo(""); // id vaha par de diya tha to yaaha  par dene ki jarurat nnnahi hai
   };
 
   return (

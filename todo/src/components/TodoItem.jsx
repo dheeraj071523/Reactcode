@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { useTodo } from "../context";
 
 export default function TodoItem({ todo }) {
+  // todo props aa raha hai
   const [isTodoEditable, setIsTodoEditable] = useState(false);
-  const [todoMsg, setTodoMsg] = useState(todo.todo);
+  const [todoMsg, setTodoMsg] = useState(todo.todo); // ye jo todo prop aaa raha iska naam ham kuch bhi rakh skate the ke ande todo se hai
   const { updatedTodo, deleteTodo, toggleComplete } = useTodo();
 
   const editTodo = () => {
-    updatedTodo(todo.id, { ...todo, todo: todoMsg });
+    updatedTodo(todo.id, { ...todo, todo: todoMsg }); // ...todo sprade kar do jo bhi existing vaalue hai matlab jo value pehle thi vo rakh lo bas tod  msg bdl do
     setIsTodoEditable(false);
   };
 
